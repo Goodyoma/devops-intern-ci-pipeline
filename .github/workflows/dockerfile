@@ -1,4 +1,4 @@
-name: CI Pipeline for Balanceè with Docker
+name: CI Pipeline Docker
 
 on:
   push:
@@ -24,8 +24,8 @@ jobs:
 
       - name: Push Docker Image to Docker Hub
         run: |
-          docker tag balancee-app goodnessmark/balancee-app:latest
-          docker push goodnessmark/balancee-app:latest
+          docker tag balancee-app goodnessmark/blit-app:latest
+          docker push goodnessmark/blit-app:latest
 
   deploy:
     runs-on: ubuntu-latest
@@ -34,4 +34,4 @@ jobs:
       - name: Deploy to Staging with Docker
         run: |
           docker pull goodnessmark/balancee-app:latest
-          docker run -d -p 80:3000 goodnessmark/balancee-app:latest
+          docker run -d -p 80:3000 goodnessmark/blit-app:latest
