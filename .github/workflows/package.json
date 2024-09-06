@@ -1,0 +1,29 @@
+name: CI Pipeline for Balanceè
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Install Dependencies
+        run: |
+          cd path/to/your/project
+          npm install
+
+      - name: Build Project
+        run: |
+          cd path/to/your/project
+          npm run build
