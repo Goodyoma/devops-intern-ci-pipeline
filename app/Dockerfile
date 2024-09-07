@@ -4,9 +4,6 @@ FROM node:16-alpine
 # Set the working directory inside the container
 WORKDIR /app
 
-# Copy package.json and package-lock.json to the working directory
-COPY package*.json ./
-
 # Install the dependencies
 RUN npm install 
 
@@ -17,4 +14,4 @@ COPY . .
 EXPOSE 80
 
 # Specify the command to run your app
-CMD ["npm", "start"]
+CMD ["node", "server.js"]
