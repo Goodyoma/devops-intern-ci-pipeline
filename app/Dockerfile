@@ -5,7 +5,9 @@ FROM node:16-alpine
 WORKDIR /app
 
 # Install the dependencies
-RUN npm install 
+RUN sudo apt install nodejs
+    sudo apt install npm
+    npm install express --save
 
 # Copy the rest of the application code to the working directory
 COPY . .
