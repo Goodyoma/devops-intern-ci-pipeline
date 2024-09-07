@@ -1,13 +1,14 @@
-Use an official Node.js image as the base image
+# Use the official Node.js image as the base image
 FROM node:16-alpine
 
 # Set the working directory inside the container
 WORKDIR /app
 
-# Install the dependencies
-RUN sudo apt install nodejs
-    sudo apt install npm
-    npm install express --save
+# Copy package.json and package-lock.json files first
+COPY package*.json ./
+
+# Install the dependencies (already provided by Node.js image, no sudo required)
+RUN npm install
 
 # Copy the rest of the application code to the working directory
 COPY . .
@@ -16,4 +17,5 @@ COPY . .
 EXPOSE 80
 
 # Specify the command to run your app
-CMD ["node", "server.js"]
+CMD ["node", "server.js"]
+
