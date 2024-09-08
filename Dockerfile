@@ -10,9 +10,6 @@ RUN apt-get update && apt-get install -y nodejs
 # Install the dependencies
 RUN npm install express --save
 
-# Copy package.json /app directory
-# COPY app/package.json ./
-
 # Copy the rest of the app
 COPY . .
 
