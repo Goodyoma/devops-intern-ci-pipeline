@@ -1,8 +1,6 @@
 FROM node:14
 
-WORKDIR /app
-
-RUN apt-get update && apt-get install -y nodejs 
+WORKDIR /app 
 
 RUN npm install express --save
 
